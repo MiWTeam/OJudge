@@ -12,6 +12,7 @@ export default [
         path: "/",
         exact: true,
         component: asyncHome, // Add your route here
+        // 预加载数据,走server端
         loadData: (): AppThunk[] => [
           fetchUserListIfNeed(),
           // Add other pre-fetched actions here

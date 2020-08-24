@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 
 const Home = (): JSX.Element => {
   const dispatch = useDispatch();
+
   const { readyStatus, items } = useSelector(
     ({ userList }: AppState) => userList,
     shallowEqual
@@ -17,6 +18,8 @@ const Home = (): JSX.Element => {
   useEffect(() => {
     dispatch(fetchUserListIfNeed());
   }, []);
+
+  // console.log("itt", items);
 
   const renderList = () => {
     if (!readyStatus || readyStatus === "invalid" || readyStatus === "request")
