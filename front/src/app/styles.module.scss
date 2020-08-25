@@ -7,6 +7,8 @@ body {
 
 .App {
   color: $color-dark;
+  margin-left: 15%;
+  margin-right: 15%;
 
   .header {
     display: block;
@@ -17,8 +19,31 @@ body {
 
     img {
       float: left;
-      height: 70px;
+      height: 40px;
       margin-right: 1em;
+    }
+
+    .title {
+      float: left;
+      font-size: 40px;
+    }
+
+    .link {
+      float: left;
+    }
+
+    .login {
+      float: left;
+      //position: relative;
+      // margin-left: 70%;
+      font-size: 18px;
+    }
+
+    .register {
+      float: left;
+      //position: relative;
+      //margin-left: 60%;
+      font-size: 18px;
     }
   }
 

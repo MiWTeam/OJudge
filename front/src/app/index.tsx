@@ -2,8 +2,10 @@ import React from "react";
 import { RouteProps, Link } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 import { Helmet } from "react-helmet";
-import { hot } from "react-hot-loader";
 
+import Button from "@material-ui/core/Button";
+
+//
 import logo from "../static/logo.svg";
 import config from "../config";
 // Import your global styles here
@@ -14,19 +16,46 @@ interface Route {
   route: { routes: RouteProps[] };
 }
 
-const App = ({ route }: Route) => (
-  <div className={styles.App}>
-    <Helmet {...config.APP} />
-    <Link to="/" className={styles.header}>
-      <img src={logo} alt="Logo" role="presentation" />
-      <h1>
-        <em>{config.APP.title}</em>
-      </h1>
-    </Link>
-    <hr />
-    {/* Child routes won't render without this */}
-    {renderRoutes(route.routes)}
-  </div>
-);
+interface AppState {
+  isVisible: boolean;
+}
 
-export default hot(module)(App);
+class App extends React.Component<Route, AppState> {
+  constructor(props: Route) {
+    super(props);
+
+    // console.log("this.pro", this.props);
+    this.state = {
+      isVisible: false,
+    };
+  }
+
+  onSubmit = (): void => {
+    const { isVisible } = this.state;
+    this.setState({ isVisible: true });
+  };
+
+  render() {
+    // const {onSubmit} = this.props;
+    const { onSubmit } = this;
+
+    const { route } = this.props;
+
+    return (
+      <div className={styles.App}>
+        <Helmet {...config.APP} />
+        <div className={styles.header}>
+          <Link to="/" className={styles.link}>
+            <img src={logo} alt="Logo" role="presentation" />
+            <div className={styles.title}> {config.APP.title} </div>
+          </Link>
+        </div>
+        <hr />
+        {/* Child routes won't render without this */}
+        {renderRoutes(route.routes)}
+      </div>
+    );
+  }
+}
+
+export default App;
