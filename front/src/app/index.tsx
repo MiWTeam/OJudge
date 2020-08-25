@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 
 import Button from "@material-ui/core/Button";
 
-//
 import logo from "../static/logo.svg";
 import config from "../config";
 // Import your global styles here
@@ -47,9 +46,7 @@ class App extends React.Component<Route, AppState> {
             <div className={styles.title}> {config.APP.title} </div>
           </Link>
         </div>
-        <Button className={styles.login} onClick={this.onSubmit}>
-          登录
-        </Button>
+        <Button className={styles.login} onClick={this.onSubmit}> 登录2 </Button>
         <hr />
         {/* Child routes won't render without this */}
         {renderRoutes(route.routes)}
