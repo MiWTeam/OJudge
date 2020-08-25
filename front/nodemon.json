@@ -1,3 +1,0 @@
-{
-  "watch": ["src/server.tsx", "src/utils/renderHtml.ts", "tools/webpack"]
-}
