@@ -36,9 +36,6 @@ class App extends React.Component<Route, AppState> {
   };
 
   render() {
-    // const {onSubmit} = this.props;
-    const { onSubmit } = this;
-
     const { route } = this.props;
 
     return (
@@ -50,6 +47,9 @@ class App extends React.Component<Route, AppState> {
             <div className={styles.title}> {config.APP.title} </div>
           </Link>
         </div>
+        <Button className={styles.login} onClick={this.onSubmit}>
+          登录
+        </Button>
         <hr />
         {/* Child routes won't render without this */}
         {renderRoutes(route.routes)}
